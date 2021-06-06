@@ -1,0 +1,71 @@
+
+//variables
+$theme-main: #ffc111;
+$theme-main-red: #f33927;
+$theme-main-dark: #383838;
+$white: #ffffff;
+$white-dark: #e2e2e2;
+$black: #000000;
+$dark-font: #222222;
+$grey-dark: #2d2a25;
+$font-color:#333333;
+$grey-light: #dddddd;
+$grey: #777777;
+$grey2: #eeeeee;
+$grey3: #c3c3c3;
+$grey4: #444;
+$grey5: #848484;
+$grey6: #e5e5e5;
+$grey7: #787878;
+$grey8: #D9D9D9;
+$grey9: #f3f3f3;
+$grey10: #9c9c9c;
+$baners-background: #f5f5f5;
+$background: #fafafa;
+$gray-lighter: #f6f6f6;
+$footer-background: #f7f7f7;
+
+
+//styles
+
+.info-bar-four-wrapper{
+  margin-top: 0px;
+    border: none;
+    background: $white;
+    border-bottom: 1px solid #e5e5e5;
+  .info-bar-four{
+
+    .card-wrap{
+      padding: 15px 0;
+      .mat-card{
+        height: 100px;
+        box-shadow: none;
+        border-right: 1px solid $grey6;
+        box-shadow: none !important;
+        background: transparent;
+        .content {
+          p {
+            font-weight: 600;
+          font-size: 14.5px;
+          }
+        }
+        &.no-bd {
+          border-right: none;
+        }
+    }
+    .mat-icon{
+      color: $theme-main;
+      font-size: 41px;
+      margin-right: 10px;
+      line-height: 65px;
+      clear: both;
+      overflow: hidden;
+      /* display: block; */
+      width: auto;
+      height: 100%;
+      /* vertical-align: middle; */
+      padding: 0 3px;
+    }
+      }
+  }
+ }

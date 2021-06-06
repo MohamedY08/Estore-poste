@@ -22,6 +22,10 @@ import {MatStepperModule} from '@angular/material/stepper';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatPaginatorModule} from '@angular/material/paginator';
+
+
 
 import {
   SwiperModule,
@@ -30,6 +34,7 @@ import {
 } from 'ngx-swiper-wrapper';
 
 import { from } from 'rxjs';
+import { HomeComponent } from './ui/home/home.component';
 
 
 
@@ -49,7 +54,8 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     HeaderComponent,
     SignupComponent,
     CarouselComponent,
-    FooterComponent
+    FooterComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -67,6 +73,8 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     MatFormFieldModule,
     MatInputModule,
     MatCardModule,
+    MatExpansionModule,
+    MatPaginatorModule,
     SwiperModule
   ],
   providers: [

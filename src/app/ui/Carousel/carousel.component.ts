@@ -8,14 +8,7 @@ import { SwiperComponent, SwiperConfigInterface, SwiperPaginationInterface } fro
 })
 export class CarouselComponent implements OnInit {
 
-  public slides = [
-    'First slide',
-    'Second slide',
-    'Third slide',
-    'Fourth slide',
-    'Fifth slide',
-    'Sixth slide'
-  ];
+  @Input('slides') slides: Array<any> = [];
 
   public type: string = 'component';
 
