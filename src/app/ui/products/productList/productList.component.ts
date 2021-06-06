@@ -8,7 +8,10 @@ import { ActivatedRoute, Params } from '@angular/router';
   templateUrl: './productList.component.html',
   styleUrls: ['./productlist.component.scss']
 })
-export class ProductLeftSidebarComponent implements OnInit {
+export class productlistComponent implements OnInit {
+
+
+
   public sidenavOpen:boolean = true;
   public animation    :   any;   // Animation
   public sortByOrder  :   string = '';   // sorting
@@ -66,6 +69,7 @@ export class ProductLeftSidebarComponent implements OnInit {
     this.viewType = viewType;
     this.viewCol = viewCol;
   }
+  */
     // Animation Effect fadeIn
     public fadeIn() {
       this.animation = 'fadeIn';
@@ -75,7 +79,7 @@ export class ProductLeftSidebarComponent implements OnInit {
   public fadeOut() {
       this.animation = 'fadeOut';
   }
-
+/*
     // Update tags filter
     public updateTagFilters(tags: any[]) {
       this.tagsFilters = tags;
