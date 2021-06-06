@@ -11,7 +11,7 @@
                                 <span>Categories</span>
                             </mat-panel-title>
                           </mat-expansion-panel-header>
-                      <app-categories></app-categories>
+                      test cat
                         </mat-expansion-panel>
                         <mat-expansion-panel>
                             <mat-expansion-panel-header>
@@ -21,7 +21,7 @@
                             </mat-expansion-panel-header>
 
                             <div class="brands">
-                               <app-brands ></app-brands>
+                               test brand
                              </div>
                           </mat-expansion-panel>
                           <mat-expansion-panel>
@@ -31,12 +31,12 @@
                                 </mat-panel-title>
                               </mat-expansion-panel-header>
 
-                              <app-price></app-price>
+                              test price
                             </mat-expansion-panel>
                       </mat-accordion>
                 </div>
                     <div class="popular-products" fxFlex.lt-md="100">
-                      <app-popular-products></app-popular-products>
+                      test popular products
                     </div>
             </div>
 
@@ -72,21 +72,48 @@
                   </div>
                 </div>
                 <div [@Animation]="animation" fxLayout="row wrap" class="products-wrapper">
-                    <div *ngFor="let products of allItems | orderBy:sortByOrder | paginate: { itemsPerPage: 12, currentPage: page  }" fxFlex="100" [fxFlex.gt-sm]="viewCol" fxFlex.sm="50" class="col">
-                       <div class="product-box">
-                          <app-product [product]="products"></app-product>
+                    <div >
+                       <div class="product-box" >
+
+
+                        <div class="product-item"  >
+                          <mat-card fxLayout="column">
+                            <div class="product-img">
+                                <a class="product-link" [routerLink]="['/home/product/id']">
+                                  <img >
+                               </a>
+                            </div>
+                             <div class="product-info-wrapper">
+                                <span class="category">test categorie</span>
+                                <div class="title-wrap">
+                                   <h4>product name</h4>
+                                </div>
+                                <div class="stars">
+                                   <mat-icon class="mat-icon-xs mat-icon material-icons ng-star-inserted">star_rate</mat-icon>
+                                   <mat-icon class="mat-icon-xs mat-icon material-icons ng-star-inserted">star_rate</mat-icon>
+                                   <mat-icon class="mat-icon-xs mat-icon material-icons ng-star-inserted">star_rate</mat-icon>
+                                   <mat-icon class="mat-icon-xs mat-icon material-icons ng-star-inserted">star_rate</mat-icon>
+                                   <mat-icon class="mat-icon-xs mat-icon material-icons ng-star-inserted">star_rate</mat-icon>
+                                </div>
+                                <div class="price-wrap" fxLayout="row" fxLayoutAlign="space-between center">
+                                 <p>a price</p>
+                                <a ><mat-icon class="mat-icon-lg mat-icon material-icons">shopping_cart</mat-icon></a>
+                                </div>
+                                <div class="icons" fxLayout="column">
+                                   <a ><mat-icon class="mat-icon-lg mat-icon material-icons mr-10">favorite_border</mat-icon></a>
+                                   <a ><mat-icon>remove_red_eye</mat-icon></a>
+                                   <a ><mat-icon>cached</mat-icon></a>
+                                 </div>
+                             </div>
+                          </mat-card>
+                        </div>
+
+
+
                        </div>
                     </div>
                 </div>
 
-                <div *ngIf="products.length > 0" fxLayout="row wrap ">
-                    <div fxFlex="100">
-                        <mat-card class="p-0 text-center no-shadow">
-                            <pagination-controls class="product-pagination" autoHide="true" maxSize="5"></pagination-controls>
-                        </mat-card>
-                    </div>
-                </div>
               </div>
     </div>
-  </div>
   </div>

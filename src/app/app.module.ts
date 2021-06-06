@@ -11,7 +11,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { HeaderComponent } from './ui/header/header.component';
 import { SignupComponent } from './ui/auth/signup/signup.component';
-import { CarouselComponent } from './ui/Carousel/carousel.component';
+import { CarouselComponent } from './ui/shop/Carousel/carousel.component';
 import { FooterComponent } from './ui/footer/footer.component';
 
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -23,7 +23,9 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
 import {MatExpansionModule} from '@angular/material/expansion';
-import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatMenuModule} from '@angular/material/menu';
+
+import {NgxPaginationModule} from 'ngx-pagination';
 
 
 
@@ -34,7 +36,9 @@ import {
 } from 'ngx-swiper-wrapper';
 
 import { from } from 'rxjs';
-import { HomeComponent } from './ui/home/home.component';
+import { HomeComponent } from './ui/shop/home/home.component';
+import { productlistComponent } from './ui/products/productList/productList.component';
+
 
 
 
@@ -55,7 +59,8 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     SignupComponent,
     CarouselComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    productlistComponent
   ],
   imports: [
     BrowserModule,
@@ -74,7 +79,9 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     MatInputModule,
     MatCardModule,
     MatExpansionModule,
-    MatPaginatorModule,
+    MatCardModule,
+    NgxPaginationModule,
+    MatMenuModule,
     SwiperModule
   ],
   providers: [

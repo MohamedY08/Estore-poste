@@ -26,6 +26,8 @@
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "mongoose": "^5.12.12",
+    "ngx-img-zoom": "^4.1.2",
+    "ngx-pagination": "^5.1.0",
     "ngx-swiper-wrapper": "^10.0.0",
     "nodemon": "^2.0.7",
     "rxjs": "~6.6.0",
