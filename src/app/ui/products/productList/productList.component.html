@@ -41,7 +41,7 @@
             </div>
 
             </div>
-          <div fxFlex="75" fxFlex.lt-sm="100" class="all-products" ngClass.gt-sm="p-left">
+            <div fxFlex="75" fxFlex.lt-sm="100" class="all-products" ngClass.gt-sm="p-left">
               <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between center" fxHide.lt-md="true" class="filter-row mat-elevation-z1 text-muted">
                   <button >
                       <mat-icon>more_vert</mat-icon>
@@ -60,33 +60,32 @@
                   </div>
                   <div>
 
-                      <button mat-icon-button >
+                      <button mat-icon-button (click)="changeViewType('list', 100)">
                           <mat-icon>view_list</mat-icon>
                       </button>
-                      <button mat-icon-button >
+                      <button mat-icon-button (click)="changeViewType('list', 33.3)">
                           <mat-icon>view_module</mat-icon>
                       </button>
-                      <button mat-icon-button >
+                      <button mat-icon-button (click)="changeViewType('list', 25)">
                           <mat-icon>view_comfy</mat-icon>
                       </button>
                   </div>
                 </div>
                 <div [@Animation]="animation" fxLayout="row wrap" class="products-wrapper">
-                    <div >
-                       <div class="product-box" >
-
+                    <div  fxFlex="100" [fxFlex.gt-sm]="viewCol" fxFlex.sm="50" class="col">
+                       <div class="product-box">
 
                         <div class="product-item"  >
                           <mat-card fxLayout="column">
                             <div class="product-img">
-                                <a class="product-link" [routerLink]="['/home/product/id']">
-                                  <img >
+                                <a class="product-link" [routerLink]="['/home/product',1]">
+                                  <img src="\assets\images\bouquet-jawhar.jpg" alt="">
                                </a>
                             </div>
                              <div class="product-info-wrapper">
-                                <span class="category">test categorie</span>
+                                <span class="category">flower</span>
                                 <div class="title-wrap">
-                                   <h4>product name</h4>
+                                   <h4>BOUQUET JAWHAR</h4>
                                 </div>
                                 <div class="stars">
                                    <mat-icon class="mat-icon-xs mat-icon material-icons ng-star-inserted">star_rate</mat-icon>
@@ -96,8 +95,14 @@
                                    <mat-icon class="mat-icon-xs mat-icon material-icons ng-star-inserted">star_rate</mat-icon>
                                 </div>
                                 <div class="price-wrap" fxLayout="row" fxLayoutAlign="space-between center">
-                                 <p>a price</p>
-                                <a ><mat-icon class="mat-icon-lg mat-icon material-icons">shopping_cart</mat-icon></a>
+                                 <p>30.00 | TND</p>
+                                <a ><mat-icon class="mat-icon-lg mat-icon material-icons snipcart-add-item"
+                                  data-item-id="BOUQUET JAWHAR"
+                                  data-item-price="30.00"
+                                  data-item-url="/products/all"
+                                  data-item-description="Bouquet : 15 Roses Blanches Crépon Bleu"
+                                  data-item-image="\assets\images\bouquet-jawhar.jpg"
+                                  data-item-name="BOUQUET JAWHAR">shopping_cart</mat-icon></a>
                                 </div>
                                 <div class="icons" fxLayout="column">
                                    <a ><mat-icon class="mat-icon-lg mat-icon material-icons mr-10">favorite_border</mat-icon></a>
@@ -110,10 +115,14 @@
 
 
 
-                       </div>
+                <div fxLayout="row wrap ">
+                    <div fxFlex="100">
+                        <mat-card class="p-0 text-center no-shadow">
+                            <pagination-controls class="product-pagination" [autoHide]="true" [maxSize]="5" ></pagination-controls>
+                        </mat-card>
                     </div>
                 </div>
-
+              </div>
               </div>
     </div>
   </div>

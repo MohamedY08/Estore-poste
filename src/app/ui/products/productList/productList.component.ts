@@ -64,12 +64,12 @@ export class productlistComponent implements OnInit {
   }
 /*
 
-
-  public changeViewType(viewType, viewCol){
+*/
+  public changeViewType(viewType: string, viewCol: number){
     this.viewType = viewType;
     this.viewCol = viewCol;
   }
-  */
+
     // Animation Effect fadeIn
     public fadeIn() {
       this.animation = 'fadeIn';
