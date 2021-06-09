@@ -1,8 +1,10 @@
 
+
+
 <div class="home-header-three">
   <div class="container" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutGap="20px" fxlayoutalign="space-between center">
     <div class="logo">
-        <a [routerLink]="['/home/one']" routerLinkActive="router-link-active" ><img width="100px" src="assets/images/PosteLogo.jpg"></a>
+        <a [routerLink]="['/']" routerLinkActive="router-link-active" ><img width="100px" src="assets/images/PosteLogo.jpg"></a>
     </div>
     <div fxflexoffset.gt-sm="10"  fxFlex class="search-form">
         <form class="search-form" fxLayout="row">
@@ -48,7 +50,7 @@
 <div class="menu-container4">
   <mat-toolbar-row fxHide fxShow.gt-sm class="container" fxLayout="row"  fxLayout.xs="row" fxLayoutAlign="space-between center">
     <div class="main-menu" fxLayout="row" fxHide fxShow.gt-sm>
-        <a  mat-button class="mat-button" >Home<mat-icon class="caret">arrow_drop_down</mat-icon></a>
+        <a  mat-button class="mat-button" [routerLink]="['/']" routerLinkActive="router-link-active">Home<mat-icon class="caret">arrow_drop_down</mat-icon></a>
         <mat-menu  class="app-dropdown">
           <a mat-menu-item [routerLink]="['/home/one']" routerLinkActive="router-link-active" >Home-1</a>
           <a mat-menu-item [routerLink]="['/home/two']" routerLinkActive="router-link-active">Home-2</a>

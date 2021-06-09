@@ -13,6 +13,8 @@ import { HeaderComponent } from './ui/header/header.component';
 import { SignupComponent } from './ui/auth/signup/signup.component';
 import { CarouselComponent } from './ui/shop/Carousel/carousel.component';
 import { FooterComponent } from './ui/footer/footer.component';
+import { HomeComponent } from './ui/shop/home/home.component';
+import { productlistComponent } from './ui/products/productList/productList.component';
 
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
@@ -24,6 +26,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatSidenavModule} from '@angular/material/sidenav';
+
 
 import {NgxPaginationModule} from 'ngx-pagination';
 
@@ -36,8 +40,7 @@ import {
 } from 'ngx-swiper-wrapper';
 
 import { from } from 'rxjs';
-import { HomeComponent } from './ui/shop/home/home.component';
-import { productlistComponent } from './ui/products/productList/productList.component';
+
 
 
 
@@ -82,6 +85,7 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     MatCardModule,
     NgxPaginationModule,
     MatMenuModule,
+    MatSidenavModule,
     SwiperModule
   ],
   providers: [
