@@ -17,12 +17,8 @@ const UserSchema = new Schema({
     lowercase: true
   },
   password: { type: String, required: true },
-  firstname: { type: String },
-  lastname: { type: String },
-  role: {
-    type: Schema.Types.ObjectId,
-    ref: "Role"
-  },
+  name: { type: String },
+  role: { type: mongoose.Schema.Types.ObjectId, ref: "Role", required: true },/*
   address: {
     addr1: String,
     addr2: String,
@@ -30,7 +26,7 @@ const UserSchema = new Schema({
     state: String,
     country: String,
     postalCode: String,
-  },
+  },*/
   created: {
     type: Date,
     default: Date.now

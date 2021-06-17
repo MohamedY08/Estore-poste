@@ -1,0 +1,13 @@
+<mat-card>
+
+  <form [formGroup]="form" (ngSubmit)="onSaveCategory()">
+
+    <mat-form-field>
+      <input matInput type="text" formControlName="name"  placeholder="Category Name">
+      <mat-error *ngIf="submitted && f.name.errors">Please enter a Category.</mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button color="accent" type="submit">Add Category</button>
+  </form>
+</mat-card>
+

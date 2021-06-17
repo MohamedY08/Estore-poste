@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -27,6 +27,8 @@ import {MatCardModule} from '@angular/material/card';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 
 import {NgxPaginationModule} from 'ngx-pagination';
@@ -40,6 +42,9 @@ import {
 } from 'ngx-swiper-wrapper';
 
 import { from } from 'rxjs';
+import { CategorylistComponent } from './ui/category/categorylist/categorylist/categorylist.component';
+import { AddCategoryComponent } from './ui/category/add-category/add-category/add-category.component';
+import { MatTableModule } from '@angular/material/table';
 
 
 
@@ -63,7 +68,10 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     CarouselComponent,
     FooterComponent,
     HomeComponent,
-    productlistComponent
+    productlistComponent,
+    CategorylistComponent,
+    AddCategoryComponent
+
   ],
   imports: [
     BrowserModule,
@@ -86,14 +94,21 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     NgxPaginationModule,
     MatMenuModule,
     MatSidenavModule,
-    SwiperModule
+    SwiperModule,
+    MatPaginatorModule,
+    MatProgressSpinnerModule,
+    MatTableModule
+
   ],
   providers: [
     {
       provide: SWIPER_CONFIG,
-      useValue: DEFAULT_SWIPER_CONFIG
-    }
+      useValue: DEFAULT_SWIPER_CONFIG,
+    },
+
+
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+
 })
 export class AppModule { }

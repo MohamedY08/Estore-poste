@@ -3,12 +3,22 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 //import { Product, ColorFilter } from 'src/app/modals/product.model';
 
+import { ProductdataService } from '../productdata.service';
+
 @Component({
   selector: 'app-product-list',
   templateUrl: './productList.component.html',
   styleUrls: ['./productList.component.scss']
 })
 export class productlistComponent implements OnInit {
+
+allproduct:any = [];
+  constructor(private product:ProductdataService){
+    this.product.getProductData().subscribe(data => {
+      console.log(data);
+      this.allproduct= data;
+    })
+  };
 
 
 
@@ -18,7 +28,7 @@ export class productlistComponent implements OnInit {
   public page:any;
   public tagsFilters  :   any[] = [];
   public viewType: string = 'grid';
-  public viewCol: number = 25;
+  public viewCol: number = 33.3;
 
   /*public items        :   Product[] = [];
   public allItems: Product[] = [];

@@ -71,21 +71,21 @@
                       </button>
                   </div>
                 </div>
-                <div  fxLayout="row wrap" class="products-wrapper">
-                    <div  fxFlex="100" [fxFlex.gt-sm]="viewCol" fxFlex.sm="50" class="col">
+                <div  fxLayout="row wrap" fxLayoutGap="30px" style="" class="products-wrapper">
+                    <div  fxFlex="100" [fxFlex.gt-sm]="viewCol" fxFlex.sm="50" ng-reflect-fx-flex="100" ng-reflect-fx-flex.sm="50" class="col ng-star-inserted">
                        <div class="product-box">
 
-                        <div class="product-item"  >
+                        <div class="product-item " *ngFor="let item of allproduct" >
                           <mat-card fxLayout="column">
                             <div class="product-img">
                                 <a class="product-link" [routerLink]="['/home/product',1]">
-                                  <img src="\assets\images\bouquet-jawhar.jpg" alt="">
+                                  <img src="{{item.image}}" alt="">
                                </a>
                             </div>
                              <div class="product-info-wrapper">
-                                <span class="category">flower</span>
+                                <span class="category">{{item.category}}</span>
                                 <div class="title-wrap">
-                                   <h4>BOUQUET JAWHAR</h4>
+                                   <h4>{{item.title}}</h4>
                                 </div>
                                 <div class="stars">
                                    <mat-icon class="mat-icon-xs mat-icon material-icons ng-star-inserted">star_rate</mat-icon>
@@ -95,12 +95,12 @@
                                    <mat-icon class="mat-icon-xs mat-icon material-icons ng-star-inserted">star_rate</mat-icon>
                                 </div>
                                 <div class="price-wrap" fxLayout="row" fxLayoutAlign="space-between center">
-                                 <p>30.00 | TND</p>
+                                 <p>{{item.price}} | TND</p>
                                 <a ><mat-icon class="mat-icon-lg mat-icon material-icons snipcart-add-item"
                                   data-item-id="BOUQUET JAWHAR"
                                   data-item-price="30.00"
-                                  data-item-url="/products/1"
-                                  data-item-description="Bouquet : 15 Roses Blanches Crépon Bleu"
+                                  data-item-url="/products/id"
+                                  data-item-description=""
                                   data-item-image="\assets\images\bouquet-jawhar.jpg"
                                   data-item-name="BOUQUET JAWHAR">shopping_cart</mat-icon></a>
                                 </div>

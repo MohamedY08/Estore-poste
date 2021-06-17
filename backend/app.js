@@ -1,35 +1,35 @@
 const express = require('express');
-const bodyParser = require("body-parser");
-const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const dotenv = require('dotenv');
 
-
+// Dotenv is a zero-dependency module that loads environment variables from a .env file into process.env
 
 const app = express();
-mongoose.connect("mongodb+srv://MohamedYesser:be6jlI8aAlfEzyk6@cluster0.k1bdb.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
-).then(() => {
-  console.log("Connected to database!");
-})
-.catch(() => {
-  console.log("Connection failed!");
-});
+app.use(bodyParser.json());
+app.use(cors());
+// Middleware
+// app.use('/employees', () => {
+//     console.log('Middleware Running');
+// });
 
-app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
-  );
-  res.setHeader(
-    "Access-Control-Allow-Methods",
-    "GET, POST, PATCH, PUT, DELETE, OPTIONS"
-  );
-  next();
-});
+// Routes
+// app.get('/', (req, res) => {
+//     res.send('Hello World');
+// });
 
 
-app.use((req, res, next) => {
-  res.send('express working!');
-});
+// app.get('/employees', (req, res) => {
+//     res.send('Employees');
+// });
 
+const connectDB = require('./config/db');
+// Load Config
+dotenv.config({path: './backend/config/config.env'})
 
-module.exports = app ;
+connectDB();
+
+// Routes
+app.use('/', require('./routes/categories'));
+
+app.listen(3000);
