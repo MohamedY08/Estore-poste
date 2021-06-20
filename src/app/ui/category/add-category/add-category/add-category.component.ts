@@ -39,7 +39,7 @@ export class AddCategoryComponent implements OnInit {
     this.categoryService.insertCategory(this.form.value).subscribe(res => {
       this.data= res;
 
-      this.router.navigateByUrl('/admin/categories');
+      this.router.navigateByUrl('/admin/category');
     })
 
   }

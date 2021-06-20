@@ -16,6 +16,7 @@ export class CategorylistComponent implements OnInit {
   dataSource = new MatTableDataSource(this.categoryInfoTable);
   displayedColumns: string[] = ['name', 'action'];
   category: any;
+  data: any;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -44,11 +45,17 @@ export class CategorylistComponent implements OnInit {
 
   getCategoryData(){
     this.categoryService.getCategory().subscribe(res => {
-      console.log(res);
       this.category = res;
       this.dataSource.data = this.category;
     })
 
+  }
+  deleteCategory(id){
+    this.categoryService.deleteCategory(id).subscribe(res => {
+      this.data = res;
+
+      this.getCategoryData();
+    });
   }
 
 }

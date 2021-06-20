@@ -1,3 +1,4 @@
+const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -30,6 +31,8 @@ dotenv.config({path: './backend/config/config.env'})
 connectDB();
 
 // Routes
+app.use("/images", express.static(path.join("backend/images")));
 app.use('/', require('./routes/categories'));
+app.use('/', require('./routes/products'));
 
 app.listen(3000);

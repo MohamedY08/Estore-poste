@@ -1,8 +1,10 @@
-export interface Product {
-  id: number;
-  title: string;
-  image: string;
-  price: number;
-  description: string;
-}
+export class Product {
+  _id: any;
+  name:any;
+  price: any;
+  category:any;
+  description:any;
+  imagePath!: string;
+  quantity:any;
 
+}

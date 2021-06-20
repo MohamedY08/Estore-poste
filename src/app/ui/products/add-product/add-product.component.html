@@ -1,0 +1,45 @@
+<mat-card>
+
+  <form [formGroup]="form" (ngSubmit)="onSaveProduct()">
+
+    <mat-form-field>
+      <input matInput type="text" formControlName="name"  placeholder="Product Name">
+      <mat-error *ngIf="submitted && f.name.errors">Please enter a Product.</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput type="text" formControlName="price"  placeholder="Product Price">
+      <mat-error *ngIf="submitted && f.price.errors">Please enter a Product price.</mat-error>
+    </mat-form-field>
+
+    <div>
+      <select  formControlName="category"  placeholder="Product Category">
+        <option selected value="" disabled>Choose a Category</option>
+        <option *ngFor="let item of cat" [value]="item._id">
+          {{item.name}}
+        </option>
+      </select>
+      <mat-error *ngIf="submitted && f.category.errors">Please select a Category.</mat-error>
+    </div>
+
+    <mat-form-field>
+      <input matInput type="text" formControlName="description"  placeholder="Product description">
+      <mat-error *ngIf="submitted && f.description.errors">Please enter a Product description.</mat-error>
+    </mat-form-field>
+
+    <div>
+      <button mat-stroked-button type="button" (click)="filePicker.click()">Pick Image</button>
+      <input type="file" #filePicker (change)="onImagePicked($event)">
+    </div>
+    <div class="image-preview" *ngIf="imagePreview !== '' && imagePreview">
+      <img [src]="imagePreview" [alt]="form.value.title">
+    </div>
+
+    <mat-form-field>
+      <input matInput type="text" formControlName="quantity"  placeholder="Product quantity">
+      <mat-error *ngIf="submitted && f.quantity.errors">Please enter a Product quantity.</mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button color="accent" type="submit">Add Product</button>
+  </form>
+</mat-card>

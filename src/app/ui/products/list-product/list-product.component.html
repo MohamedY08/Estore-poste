@@ -1,0 +1,34 @@
+<section class="jumbotron text-center">
+  <div class="container">
+    <h1 class="jumbotron-heading">Products List</h1>
+    <p>
+      <a [routerLink]="['add']" class="btn btn-primary my-2">Add new Product</a>
+      <a href="#" class="btn btn-secondary my-2">Secondary action</a>
+    </p>
+  </div>
+</section>
+
+<div class="album py-5 bg-light">
+  <div class="container">
+
+    <div class="row">
+      <div class="col-md-4" *ngFor="let product of products">
+        <div class="card mb-4 box-shadow">
+          <img class="card-img-top" src="{{ product.imagePath }}" alt="Card image cap">
+          <div class="card-body">
+            <p class="card-text">{{ product.name }}</p>
+
+            <p class="card-text">{{ product.description }}</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-secondary" [routerLink]="['edit', product._id]">Edit</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary" (click)="deleteProduct(product._id)">Delete</button>
+              </div>
+              <small class="text-muted">TND {{ product.price }}</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -45,6 +45,10 @@ import { from } from 'rxjs';
 import { CategorylistComponent } from './ui/category/categorylist/categorylist/categorylist.component';
 import { AddCategoryComponent } from './ui/category/add-category/add-category/add-category.component';
 import { MatTableModule } from '@angular/material/table';
+import { EditCategoryComponent } from './ui/category/edit-category/edit-category/edit-category.component';
+import { AddProductComponent } from './ui/products/add-product/add-product.component';
+import { EditProductComponent } from './ui/products/edit-product/edit-product.component';
+import { ListProductComponent } from './ui/products/list-product/list-product.component';
 
 
 
@@ -70,7 +74,11 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     HomeComponent,
     productlistComponent,
     CategorylistComponent,
-    AddCategoryComponent
+    AddCategoryComponent,
+    EditCategoryComponent,
+    AddProductComponent,
+    EditProductComponent,
+    ListProductComponent
 
   ],
   imports: [

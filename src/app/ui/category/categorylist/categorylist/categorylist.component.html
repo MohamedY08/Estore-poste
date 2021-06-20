@@ -16,9 +16,9 @@
     <ng-container matColumnDef="action">
       <th colspan="2" class="table-width-td-th"  mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
       <td class="table-width-td-th"  mat-cell *matCellDef="let row">
-         <button mat-fab color="primary" aria-label="Example icon button with a delete icon">
-          <mat-icon>edit</mat-icon></button>{{row.id}}
-         <button mat-fab color="warn" aria-label="Example icon button with a delete icon">
+         <button mat-fab color="primary" aria-label="Example icon button with a delete icon" [routerLink]="['edit', row._id]">
+          <mat-icon>edit</mat-icon></button>
+         <button mat-fab color="warn" aria-label="Example icon button with a delete icon" (click)="deleteCategory(row._id)">
           <mat-icon>delete</mat-icon></button>
       </td>
     </ng-container>

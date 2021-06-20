@@ -1,0 +1,12 @@
+<mat-card>
+
+  <form [formGroup]="form" (ngSubmit)="onUpdateCategory()">
+
+    <mat-form-field>
+      <input matInput type="text" formControlName="name"  placeholder="Category Name">
+    </mat-form-field>
+
+    <button mat-raised-button color="accent" type="submit">Update Category</button>
+  </form>
+</mat-card>
+

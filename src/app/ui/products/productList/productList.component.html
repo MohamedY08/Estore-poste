@@ -75,17 +75,17 @@
                     <div  fxFlex="100" [fxFlex.gt-sm]="viewCol" fxFlex.sm="50" ng-reflect-fx-flex="100" ng-reflect-fx-flex.sm="50" class="col ng-star-inserted">
                        <div class="product-box">
 
-                        <div class="product-item " *ngFor="let item of allproduct" >
+                        <div class="product-item " *ngFor="let product of products" >
                           <mat-card fxLayout="column">
                             <div class="product-img">
                                 <a class="product-link" [routerLink]="['/home/product',1]">
-                                  <img src="{{item.image}}" alt="">
+                                  <img src="{{product.imagePath}}" alt="">
                                </a>
                             </div>
                              <div class="product-info-wrapper">
-                                <span class="category">{{item.category}}</span>
+                                <span class="category">{{product.category}}</span>
                                 <div class="title-wrap">
-                                   <h4>{{item.title}}</h4>
+                                   <h4>{{product.name}}</h4>
                                 </div>
                                 <div class="stars">
                                    <mat-icon class="mat-icon-xs mat-icon material-icons ng-star-inserted">star_rate</mat-icon>
@@ -95,7 +95,7 @@
                                    <mat-icon class="mat-icon-xs mat-icon material-icons ng-star-inserted">star_rate</mat-icon>
                                 </div>
                                 <div class="price-wrap" fxLayout="row" fxLayoutAlign="space-between center">
-                                 <p>{{item.price}} | TND</p>
+                                 <p>{{product.price}} | TND</p>
                                 <a ><mat-icon class="mat-icon-lg mat-icon material-icons snipcart-add-item"
                                   data-item-id="BOUQUET JAWHAR"
                                   data-item-price="30.00"

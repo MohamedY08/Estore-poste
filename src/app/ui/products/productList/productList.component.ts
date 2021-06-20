@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 //import { Product, ColorFilter } from 'src/app/modals/product.model';
 
-import { ProductdataService } from '../productdata.service';
+import { ProductService } from '../../../service/product.service';
 
 @Component({
   selector: 'app-product-list',
@@ -12,13 +12,11 @@ import { ProductdataService } from '../productdata.service';
 })
 export class productlistComponent implements OnInit {
 
-allproduct:any = [];
-  constructor(private product:ProductdataService){
-    this.product.getProductData().subscribe(data => {
-      console.log(data);
-      this.allproduct= data;
-    })
-  };
+  products: any;
+constructor(private productService: ProductService){
+
+
+}
 
 
 
@@ -72,9 +70,9 @@ allproduct:any = [];
 */
   ngOnInit() {
   }
-/*
 
-*/
+
+
   public changeViewType(viewType: string, viewCol: number){
     this.viewType = viewType;
     this.viewCol = viewCol;
@@ -162,4 +160,9 @@ onBrendsChanged(newBrend) {
 
 
 }*/
+getProductData(){
+  this.productService.getProduct().subscribe(res => {
+    this.products = res;
+  })
+}
 }
