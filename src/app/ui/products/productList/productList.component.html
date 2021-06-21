@@ -11,7 +11,7 @@
                                 <span>Categories</span>
                             </mat-panel-title>
                           </mat-expansion-panel-header>
-                      test cat
+                      category working!
                         </mat-expansion-panel>
                         <mat-expansion-panel>
                             <mat-expansion-panel-header>
@@ -21,7 +21,7 @@
                             </mat-expansion-panel-header>
 
                             <div class="brands">
-                               test brand
+                               brand working!
                              </div>
                           </mat-expansion-panel>
                           <mat-expansion-panel>
@@ -31,23 +31,23 @@
                                 </mat-panel-title>
                               </mat-expansion-panel-header>
 
-                              test price
+                              price working!
                             </mat-expansion-panel>
                       </mat-accordion>
                 </div>
                     <div class="popular-products" fxFlex.lt-md="100">
-                      test popular products
+                      popular products working!
                     </div>
             </div>
 
             </div>
-            <div fxFlex="75" fxFlex.lt-sm="100" class="all-products" ngClass.gt-sm="p-left">
+          <div fxFlex="75" fxFlex.lt-sm="100" class="all-products" ngClass.gt-sm="p-left">
               <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between center" fxHide.lt-md="true" class="filter-row mat-elevation-z1 text-muted">
-                  <button >
+                  <button *ngIf="!sidenavOpen" mat-icon-button >
                       <mat-icon>more_vert</mat-icon>
                   </button>
                   <div >
-                      <select>
+                      <select >
                           <option value="asc">Sorting items</option>
                           <option value="asc">Ascending Order</option>
                           <option value="desc">Descending Order</option>
@@ -71,14 +71,13 @@
                       </button>
                   </div>
                 </div>
-                <div  fxLayout="row wrap" fxLayoutGap="30px" style="" class="products-wrapper">
-                    <div  fxFlex="100" [fxFlex.gt-sm]="viewCol" fxFlex.sm="50" ng-reflect-fx-flex="100" ng-reflect-fx-flex.sm="50" class="col ng-star-inserted">
+                <div fxLayout="row wrap" fxLayoutGap="20px" class="products-wrapper">
+                    <div *ngFor="let product of products paginate: { itemsPerPage: 12, currentPage: page  }" fxFlex="100" [fxFlex.gt-sm]="viewCol" fxFlex.sm="50" class="col ng-star-inserted">
                        <div class="product-box">
-
-                        <div class="product-item " *ngFor="let product of products" >
+                        <div class="product-item"  >
                           <mat-card fxLayout="column">
                             <div class="product-img">
-                                <a class="product-link" [routerLink]="['/home/product',1]">
+                                <a class="product-link" >
                                   <img src="{{product.imagePath}}" alt="">
                                </a>
                             </div>
@@ -95,14 +94,8 @@
                                    <mat-icon class="mat-icon-xs mat-icon material-icons ng-star-inserted">star_rate</mat-icon>
                                 </div>
                                 <div class="price-wrap" fxLayout="row" fxLayoutAlign="space-between center">
-                                 <p>{{product.price}} | TND</p>
-                                <a ><mat-icon class="mat-icon-lg mat-icon material-icons snipcart-add-item"
-                                  data-item-id="BOUQUET JAWHAR"
-                                  data-item-price="30.00"
-                                  data-item-url="/products/id"
-                                  data-item-description=""
-                                  data-item-image="\assets\images\bouquet-jawhar.jpg"
-                                  data-item-name="BOUQUET JAWHAR">shopping_cart</mat-icon></a>
+                                 <p>{{product.price}} TND</p>
+                                <a ><mat-icon class="mat-icon-lg mat-icon material-icons">shopping_cart</mat-icon></a>
                                 </div>
                                 <div class="icons" fxLayout="column">
                                    <a ><mat-icon class="mat-icon-lg mat-icon material-icons mr-10">favorite_border</mat-icon></a>
@@ -112,17 +105,18 @@
                              </div>
                           </mat-card>
                         </div>
+                       </div>
+                    </div>
+                </div>
 
-
-
-                <div fxLayout="row wrap ">
+                <div  fxLayout="row wrap ">
                     <div fxFlex="100">
                         <mat-card class="p-0 text-center no-shadow">
-                            <pagination-controls class="product-pagination" [autoHide]="true" [maxSize]="5" ></pagination-controls>
+                            <pagination-controls class="product-pagination"></pagination-controls>
                         </mat-card>
                     </div>
                 </div>
               </div>
-              </div>
     </div>
+  </div>
   </div>

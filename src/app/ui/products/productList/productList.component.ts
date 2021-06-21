@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 //import { ProductService } from 'src/app/components/shared/services/product.service';
 import { ActivatedRoute, Params } from '@angular/router';
+import { CategoryService } from 'src/app/service/category.service';
 //import { Product, ColorFilter } from 'src/app/modals/product.model';
 
 import { ProductService } from '../../../service/product.service';
@@ -13,7 +14,8 @@ import { ProductService } from '../../../service/product.service';
 export class productlistComponent implements OnInit {
 
   products: any;
-constructor(private productService: ProductService){
+  data: any;
+constructor(private productService: ProductService, private categoryService: CategoryService){
 
 
 }
@@ -68,7 +70,8 @@ constructor(private productService: ProductService){
    }
 
 */
-  ngOnInit() {
+  ngOnInit(): void{
+    this.getProductData();
   }
 
 
@@ -163,6 +166,15 @@ onBrendsChanged(newBrend) {
 getProductData(){
   this.productService.getProduct().subscribe(res => {
     this.products = res;
+
+    this.products.forEach(product => {
+      this.categoryService.getCategoryById(product.category).subscribe(res => {
+        this.data = res;
+
+        product.category = this.data.name;
+      })
+    });
+
   })
 }
 }
