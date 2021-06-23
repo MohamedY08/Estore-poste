@@ -72,7 +72,7 @@
                   </div>
                 </div>
                 <div fxLayout="row wrap" fxLayoutGap="20px" class="products-wrapper">
-                    <div *ngFor="let product of products paginate: { itemsPerPage: 12, currentPage: page  }" fxFlex="100" [fxFlex.gt-sm]="viewCol" fxFlex.sm="50" class="col ng-star-inserted">
+                    <div *ngFor="let product of products"  fxFlex="100" [fxFlex.gt-sm]="viewCol" fxFlex.sm="50" class="col ng-star-inserted">
                        <div class="product-box">
                         <div class="product-item"  >
                           <mat-card fxLayout="column">
