@@ -77,7 +77,7 @@
                         <div class="product-item"  >
                           <mat-card fxLayout="column">
                             <div class="product-img">
-                                <a class="product-link" >
+                                <a class="product-link" [routerLink]="['/product', product.id]">
                                   <img src="{{product.imagePath}}" alt="">
                                </a>
                             </div>
@@ -95,7 +95,16 @@
                                 </div>
                                 <div class="price-wrap" fxLayout="row" fxLayoutAlign="space-between center">
                                  <p>{{product.price}} TND</p>
-                                <a ><mat-icon class="mat-icon-lg mat-icon material-icons">shopping_cart</mat-icon></a>
+                                <a
+                                class="snipcart-add-item"
+                                [attr.data-item-id]="product._id"
+                                [attr.data-item-price]="product.price"
+                                [attr.data-item-url]="'/product/' + product._id"
+                                [attr.data-item-description]="product.description"
+                                [attr.data-item-image]="product.imagePath"
+                                [attr.data-item-name]="product.name"
+
+                                ><mat-icon class="mat-icon-lg mat-icon material-icons">shopping_cart</mat-icon></a>
                                 </div>
                                 <div class="icons" fxLayout="column">
                                    <a ><mat-icon class="mat-icon-lg mat-icon material-icons mr-10">favorite_border</mat-icon></a>

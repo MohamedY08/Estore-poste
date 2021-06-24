@@ -14,16 +14,16 @@
                        <button mat-icon-button  fxHide="false" fxHide.gt-md>
                           <mat-icon>fullscreen</mat-icon>
                        </button>
-                       <img [src]="product.pictures[bigProductImageIndex].big"/>
+                       <img src="{{product.imagePath}}"/>
                     </div>
-                    <a (click)="openProductDialog(product, bigProductImageIndex)" style="cursor: pointer;"><mat-icon>zoom_in</mat-icon></a>
+                    <a  style="cursor: pointer;"><mat-icon>zoom_in</mat-icon></a>
                  </mat-card>
 
 
-                <div class="small-carousel">
+                <!--<div class="small-carousel">
                     <div class="swiper-container" [swiper]="config">
                         <div class="swiper-wrapper">
-                            <div *ngFor="let image of product?.pictures; let i=index" class="swiper-slide">
+                            <div *ngFor="let image of product?.imagePath; let i=index" class="swiper-slide">
                                 <mat-card (click)="selectImage(i)" class="p-1">
                                     <img [src]="image.small" class="swiper-lazy"/>
                                     <div class="swiper-lazy-preloader"></div>
@@ -33,25 +33,25 @@
                         <button mat-icon-button class="swiper-button-prev swipe-arrow"><mat-icon>keyboard_arrow_left</mat-icon></button>
                         <button mat-icon-button class="swiper-button-next swipe-arrow"><mat-icon>keyboard_arrow_right</mat-icon></button>
                     </div>
-                </div>
+                </div>-->
                </div>
                <div fxFlex="100" fxFlex.gt-md="50" fxFlex.md="55" ngClass.gt-sm="px-3 m-0" ngClass.sm="mt-2" ngClass.xs="mt-2">
 
                   <div class="product-right">
                      <div class="product-details">
                         <h2>{{product.name}}</h2>
-                        <h4 *ngIf="!productsService?.catalogMode"><del>{{product.salePrice | currency:productsService?.currency:'symbol'}}</del><span>{{product.discount}}% off</span></h4>
-                        <h3 class="price" *ngIf="!productsService?.catalogMode">{{product.price | currency:productsService?.currency:'symbol'}}</h3>
+                        <!--<h4 *ngIf="!productsService?.catalogMode"><del>{{product.salePrice | currency:productsService?.currency:'symbol'}}</del><span>{{product.discount}}% off</span></h4>-->
+                        <h3 class="price" >{{product.price}} | TND </h3>
                         <p class="text-muted description">{{product.description}}</p>
                      </div>
                      <div class="py-1 mt-15">
                         <p>
                            <span class="text-muted fw-500">Avalibility: </span>
-                           <span class="avalibility" *ngIf="counter <= product.stock"><span>In Stock</span></span>
-                           <span class="avalibility" *ngIf="counter > product.stock"><span>Out of Stock</span></span>
+                           <span class="avalibility" *ngIf="1 <= product.quantity"><span>In Stock</span></span>
+                           <span class="avalibility" *ngIf="1 > product.quantity"><span>Out of Stock</span></span>
                         </p>
                      </div>
-                     <div class="quantity">
+                     <!--<div class="quantity">
                         <span class="text-muted fw-500">Quantity</span>
                         <div fxLayout="row" fxLayout.xs="column"  class="text-muted">
                            <div fxLayout="row" fxLayoutAlign="center start">
@@ -64,10 +64,10 @@
                               </button>
                            </div>
                         </div>
-                     </div>
+                     </div>-->
                      <div class="buttons mt-20">
-                        <button mat-raised-button color="primary" class="btn-project mr-10" (click)="addToCart(product, counter)">ADD TO CARD</button>
-                        <button mat-raised-button color="primary" class="btn-project" (click)="buyNow(product, counter)">BUY NOW</button>
+                        <button mat-raised-button color="primary" class="btn-project mr-10">ADD TO CARD</button>
+                        <!--<button mat-raised-button color="primary" class="btn-project" (click)="buyNow(product, counter)">BUY NOW</button>-->
                      </div>
                   </div>
                </div>
@@ -78,12 +78,12 @@
                <mat-tab-group [@.disabled]="true" [selectedIndex]="0">
                <mat-tab label="Description">
                   <div class="full-desc lh">
-                     <p class="text-muted">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                     <p class="text-muted">{{product.name}}: {{product.description}}</p>
                   </div>
                </mat-tab>
                <mat-tab label="Details">
                   <div class="full-desc lh text-muted">
-                     <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                     <p>Stock: {{product.quantity}}</p>
                      <ul class="px-2 mt-1">
                         <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
                         <li>Aenean vehicula, tortor gravida elementum tincidunt, justo lorem vestibulum ex, eget egestas arcu tellus in magna. Vivamus gravida, ipsum vel luctus luctus, nisi felis vestibulum est, nec interdum tellus leo quis tellus. Sed sit amet convallis enim, in laoreet orci.</li>
@@ -94,7 +94,7 @@
                      </ul>
                   </div>
                </mat-tab>
-               <mat-tab label="Reviews">
+               <!--<mat-tab label="Reviews">
                   <div class="full-desc lh">
                      <mat-list class="reviews">
                         <mat-list-item class="content">
@@ -174,7 +174,7 @@
                         </form>
                      </div>
                   </div>
-               </mat-tab>
+               </mat-tab>-->
                </mat-tab-group>
             </mat-card>
          </div>
@@ -183,7 +183,7 @@
             <div class="title">
                 <h4 class="widget-title">Featured Products</h4>
               </div>
-          <app-product-carousel-three [product]="products | slice:0:6"></app-product-carousel-three>
+          <!--<app-product-carousel-three [product]="products | slice:0:6"></app-product-carousel-three>-->
          </div>
        </div>
        <div fxLayout="row wrap" fxHide fxShow.gt-sm fxFlex="100" fxFlex.gt-sm="22">

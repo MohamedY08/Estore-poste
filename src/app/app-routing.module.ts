@@ -7,6 +7,7 @@ import { EditCategoryComponent } from './ui/category/edit-category/edit-category
 import { AddProductComponent } from './ui/products/add-product/add-product.component';
 import { EditProductComponent } from './ui/products/edit-product/edit-product.component';
 import { ListProductComponent } from './ui/products/list-product/list-product.component';
+import { ProductDetailsComponent } from './ui/products/product-details/product-details.component';
 import { productlistComponent } from './ui/products/productList/productList.component';
 import { CarouselComponent } from './ui/shop/Carousel/carousel.component';
 import { HomeComponent } from './ui/shop/home/home.component';
@@ -15,15 +16,16 @@ import { HomeComponent } from './ui/shop/home/home.component';
 
 const routes: Routes = [
   //{ path: "login", component: LoginComponent },
-  { path: "", component: HomeComponent },
-  { path: "signup", component: SignupComponent },
-  { path: "products/all", component: productlistComponent},
-  { path: "admin/category", component: CategorylistComponent},
-  { path: "admin/category/add", component: AddCategoryComponent},
-  { path: "admin/category/edit/:id", component: EditCategoryComponent},
-  { path: "admin/product/add", component: AddProductComponent },
-  { path: "admin/product", component: ListProductComponent },
-  { path: "admin/product/edit/:id", component: EditProductComponent},
+  { path: '', component: HomeComponent },
+  { path: 'signup', component: SignupComponent },
+  { path: 'product', component: productlistComponent},
+  { path: 'product/:id', component: ProductDetailsComponent},
+  { path: 'admin/category', component: CategorylistComponent},
+  { path: 'admin/category/add', component: AddCategoryComponent},
+  { path: 'admin/category/edit/:id', component: EditCategoryComponent},
+  { path: 'admin/product/add', component: AddProductComponent },
+  { path: 'admin/product', component: ListProductComponent },
+  { path: 'admin/product/edit/:id', component: EditProductComponent},
 ];
 
 @NgModule({

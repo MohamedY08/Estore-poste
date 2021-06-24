@@ -1,12 +1,12 @@
 import { Component, OnInit, Inject, ViewEncapsulation, ViewChild } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { ProductService } from 'src/app/components/shared/services/product.service';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ProductService } from '../../../../service/product.service';
 import { Product } from 'src/app/modals/product.model';
 
 @Component({
   selector: 'app-product-zoom',
   templateUrl: './product-zoom.component.html',
-  styleUrls: ['./product-zoom.component.sass'],
+  styleUrls: ['./product-zoom.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class ProductZoomComponent implements OnInit {

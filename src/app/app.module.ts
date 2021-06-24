@@ -29,6 +29,9 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatTabsModule} from '@angular/material/tabs';
+
+
 
 
 import {NgxPaginationModule} from 'ngx-pagination';
@@ -49,6 +52,8 @@ import { EditCategoryComponent } from './ui/category/edit-category/edit-category
 import { AddProductComponent } from './ui/products/add-product/add-product.component';
 import { EditProductComponent } from './ui/products/edit-product/edit-product.component';
 import { ListProductComponent } from './ui/products/list-product/list-product.component';
+import { ProductDetailsComponent } from './ui/products/product-details/product-details.component';
+import { ProductZoomComponent } from './ui/products/product-details/product-zoom/product-zoom.component';
 
 
 
@@ -78,7 +83,9 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     EditCategoryComponent,
     AddProductComponent,
     EditProductComponent,
-    ListProductComponent
+    ListProductComponent,
+    ProductDetailsComponent,
+    ProductZoomComponent
 
   ],
   imports: [
@@ -105,7 +112,8 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     SwiperModule,
     MatPaginatorModule,
     MatProgressSpinnerModule,
-    MatTableModule
+    MatTableModule,
+    MatTabsModule
 
   ],
   providers: [
