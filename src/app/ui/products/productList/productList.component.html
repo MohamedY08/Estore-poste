@@ -13,17 +13,7 @@
                           </mat-expansion-panel-header>
                       category working!
                         </mat-expansion-panel>
-                        <mat-expansion-panel>
-                            <mat-expansion-panel-header>
-                              <mat-panel-title>
-                                  <span>Brands</span>
-                              </mat-panel-title>
-                            </mat-expansion-panel-header>
 
-                            <div class="brands">
-                               brand working!
-                             </div>
-                          </mat-expansion-panel>
                           <mat-expansion-panel>
                               <mat-expansion-panel-header>
                                 <mat-panel-title>
@@ -36,7 +26,7 @@
                       </mat-accordion>
                 </div>
                     <div class="popular-products" fxFlex.lt-md="100">
-                      popular products working!
+
                     </div>
             </div>
 
@@ -99,7 +89,7 @@
                                 class="snipcart-add-item"
                                 [attr.data-item-id]="product._id"
                                 [attr.data-item-price]="product.price"
-                                [attr.data-item-url]="'/product/' + product._id"
+                                [attr.data-item-url]="'localhost:3000/api/product/' + product._id"
                                 [attr.data-item-description]="product.description"
                                 [attr.data-item-image]="product.imagePath"
                                 [attr.data-item-name]="product.name"

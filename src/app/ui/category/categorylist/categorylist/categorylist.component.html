@@ -1,4 +1,16 @@
-<div class="docs-example-viewer-body">
+<section class="jumbotron text-center">
+  <div class="container">
+    <h1 class="jumbotron-heading">category List</h1>
+    <p>
+      <a [routerLink]="['add']" class="btn btn-primary my-2">Add new Category</a>
+      <a routerLink="/admin/product" class="btn btn-secondary my-2">Products</a>
+    </p>
+  </div>
+</section>
+
+
+
+<div class="docs-example-viewer-body" >
 <mat-form-field>
   <mat-label>Search</mat-label>
   <input matInput (keyup)="applyFilter($event)" placeholder="Search" #input>
@@ -16,10 +28,10 @@
     <ng-container matColumnDef="action">
       <th colspan="2" class="table-width-td-th"  mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
       <td class="table-width-td-th"  mat-cell *matCellDef="let row">
-         <button mat-fab color="primary" aria-label="Example icon button with a delete icon" [routerLink]="['edit', row._id]">
-          <mat-icon>edit</mat-icon></button>
-         <button mat-fab color="warn" aria-label="Example icon button with a delete icon" (click)="deleteCategory(row._id)">
-          <mat-icon>delete</mat-icon></button>
+         <button mat-flat-button color="primary" aria-label="Example icon button with a delete icon" [routerLink]="['edit', row._id]">
+          <mat-icon>edit</mat-icon> Edit</button>
+         <button mat-flat-button color="warn" aria-label="Example icon button with a delete icon" (click)="deleteCategory(row._id)">
+          <mat-icon>delete</mat-icon> Delete</button>
       </td>
     </ng-container>
 

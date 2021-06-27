@@ -30,6 +30,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatSliderModule} from '@angular/material/slider';
 
 
 
@@ -54,6 +55,8 @@ import { EditProductComponent } from './ui/products/edit-product/edit-product.co
 import { ListProductComponent } from './ui/products/list-product/list-product.component';
 import { ProductDetailsComponent } from './ui/products/product-details/product-details.component';
 import { ProductZoomComponent } from './ui/products/product-details/product-zoom/product-zoom.component';
+import { MatSelectModule } from '@angular/material/select';
+import { ErrorPageComponent } from './ui/error-page/error-page.component'
 
 
 
@@ -85,7 +88,9 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     EditProductComponent,
     ListProductComponent,
     ProductDetailsComponent,
-    ProductZoomComponent
+    ProductZoomComponent,
+    ErrorPageComponent,
+
 
   ],
   imports: [
@@ -113,7 +118,9 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     MatPaginatorModule,
     MatProgressSpinnerModule,
     MatTableModule,
-    MatTabsModule
+    MatTabsModule,
+    MatSelectModule,
+    MatSliderModule,
 
   ],
   providers: [

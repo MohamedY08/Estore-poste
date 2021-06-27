@@ -3,7 +3,7 @@
     <h1 class="jumbotron-heading">Products List</h1>
     <p>
       <a [routerLink]="['add']" class="btn btn-primary my-2">Add new Product</a>
-      <a href="#" class="btn btn-secondary my-2">Secondary action</a>
+      <a routerLink="/admin/category" class="btn btn-secondary my-2">Categories</a>
     </p>
   </div>
 </section>
@@ -21,8 +21,8 @@
             <p class="card-text">{{ product.description }}</p>
             <div class="d-flex justify-content-between align-items-center">
               <div class="btn-group">
-                <button type="button" class="btn btn-sm btn-outline-secondary" [routerLink]="['edit', product._id]">Edit</button>
-                <button type="button" class="btn btn-sm btn-outline-secondary" (click)="deleteProduct(product._id)">Delete</button>
+                <button mat-flat-button color="primary" type="button" class="btn btn-sm btn-outline-secondary" [routerLink]="['edit', product._id]">Edit</button>
+                <button mat-raised-button color="warn" type="button" class="btn btn-sm btn-outline-secondary" (click)="deleteProduct(product._id)">Delete</button>
               </div>
               <small class="text-muted">TND {{ product.price }}</small>
             </div>

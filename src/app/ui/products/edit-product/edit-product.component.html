@@ -1,4 +1,8 @@
-<mat-card>
+<div class="container tm-mt-big tm-mb-big">
+  <div class="col-12">
+    <h2 class="tm-block-title d-inline-block">Update Product</h2>
+  </div>
+<mat-card fxLayoutAlign="center">
 
   <form [formGroup]="form" (ngSubmit)="onUpdateProduct()">
 
@@ -10,14 +14,14 @@
       <input matInput type="text" formControlName="price"  placeholder="Product Price">
     </mat-form-field>
 
-    <div>
-      <select  formControlName="category"  placeholder="Product Category">
-        <option selected value="" disabled>Choose a Category</option>
-        <option *ngFor="let item of cat" [value]="item._id">
+    <mat-form-field>
+      <mat-select  formControlName="category"  placeholder="Product Category">
+        <mat-option selected value="" disabled>Choose a Category</mat-option>
+        <mat-option *ngFor="let item of cat" [value]="item._id">
           {{item.name}}
-        </option>
-      </select>
-    </div>
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
 
     <mat-form-field>
       <input matInput type="text" formControlName="description"  placeholder="Product description">
@@ -35,7 +39,8 @@
       <input matInput type="text" formControlName="quantity"  placeholder="Product quantity">
 
     </mat-form-field>
-
-    <button mat-raised-button color="accent" type="submit">Add Product</button>
+<br>
+    <button mat-raised-button color="accent" type="submit">Update Product</button>
   </form>
 </mat-card>
+</div>

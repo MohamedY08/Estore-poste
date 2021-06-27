@@ -1,9 +1,34 @@
+<mat-toolbar class="main-topbar">
+  <mat-toolbar-row fxLayout="row" fxLayoutAlign="space-between center" class="top-bar container" >
+          <span fxHide="false" fxHide.gt-sm   >
+              <button mat-icon-button >
+                  <mat-icon>menu</mat-icon>
+              </button>
+           </span>
+        <div fxLayout="row" class="welcome-message">
 
+        </div>
+        <div class="widgets-left" fxLayout="row">
+
+          <div class="widget-text">
+            <a fxShow="false" fxShow.gt-xs [routerLink]="['/wishlist']" routerLinkActive="router-link-active" ><mat-icon class="mat-icon-lg mat-icon material-icons mr-10">favorite_border</mat-icon> WISHLIST</a>
+          </div>
+          <div class="widget-text">
+              <a fxShow="false" fxShow.gt-xs   class="snipcart-customer-signin"><mat-icon>person</mat-icon>My Account</a>
+            </div>
+        </div>
+
+
+
+
+  </mat-toolbar-row>
+
+</mat-toolbar>
 
 
 <div class="home-header-three">
   <div class="container" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutGap="20px" fxlayoutalign="space-between center">
-    <div class="logo">
+    <div class="logo" style="padding: 0px;">
         <a [routerLink]="['/']" routerLinkActive="router-link-active" ><img width="100px" src="assets/images/PosteLogo.jpg"></a>
     </div>
     <div fxflexoffset.gt-sm="10"  fxFlex class="search-form">
