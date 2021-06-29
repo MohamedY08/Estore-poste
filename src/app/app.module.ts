@@ -57,6 +57,11 @@ import { ProductDetailsComponent } from './ui/products/product-details/product-d
 import { ProductZoomComponent } from './ui/products/product-details/product-zoom/product-zoom.component';
 import { MatSelectModule } from '@angular/material/select';
 import { ErrorPageComponent } from './ui/error-page/error-page.component'
+import { LoginComponent } from './ui/auth/loginn/login.component';
+import { AuthInterceptor } from './ui/auth/auth-interceptor';
+import { NavbarComponent } from './ui/admin/dashboard/nav/navbar/navbar.component';
+import { DashboardComponent } from './ui/admin/dashboard/dashboard/dashboard.component';
+import { ProductInfoComponent } from './ui/products/product-info/product-info/product-info.component';
 
 
 
@@ -77,6 +82,7 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     AppComponent,
     HeaderComponent,
     SignupComponent,
+    LoginComponent,
     CarouselComponent,
     FooterComponent,
     HomeComponent,
@@ -90,6 +96,9 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     ProductDetailsComponent,
     ProductZoomComponent,
     ErrorPageComponent,
+    NavbarComponent,
+    DashboardComponent,
+    ProductInfoComponent,
 
 
   ],
@@ -125,10 +134,12 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   ],
   providers: [
     {
+      provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true
+    },
+    {
       provide: SWIPER_CONFIG,
       useValue: DEFAULT_SWIPER_CONFIG,
-    },
-
+    }
 
   ],
   bootstrap: [AppComponent],

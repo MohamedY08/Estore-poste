@@ -8,7 +8,7 @@ const Role = require("../models/role");
 const router = express.Router();
 
 
-router.post("/signup", (req, res, next) => {
+router.post("/api/signup", (req, res, next) => {
   bcrypt.hash(req.body.password, 10).then(hash => {
     const user = new User({
       email: req.body.email,
@@ -32,7 +32,7 @@ router.post("/signup", (req, res, next) => {
   });
 });
 
-router.post("/login", (req, res, next) => {
+router.post("/api/login", (req, res, next) => {
   let fetchedUser;
   User.findOne({ email: req.body.email })
     .then(user => {
@@ -58,7 +58,8 @@ router.post("/login", (req, res, next) => {
       res.status(200).json({
         token: token,
         expiresIn: 3600,
-        userId: fetchedUser._id
+        userId: fetchedUser._id,
+        userRole: fetchedUser.role
       });
     })
     .catch(err => {

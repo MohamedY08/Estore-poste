@@ -2,11 +2,12 @@ const express = require('express');
 const router = express.Router();
 const ObjectId = require('mongoose').Types.ObjectId;
 
+const checkAuth = require('../middleware/check-auth');
 const { Category } = require('../models/category');
 
 
 // Get All Employees
-router.get('/api/categories', (req, res) => {
+router.get('/api/categories',  (req, res) => {
     Category.find({}, (err, data) => {
         if(!err) {
             res.send(data);
@@ -47,9 +48,10 @@ router.get('/api/category/:id', (req, res) => {
 
 
 // Save Employee
-router.post('/api/category/add', (req, res) => {
+router.post('/api/category/add', checkAuth, (req, res) => {
     const cat = new Category({
         name: req.body.name,
+        creator: req.userData.userId,
     });
     cat.save((err, data) => {
         if(!err) {
@@ -65,13 +67,14 @@ router.post('/api/category/add', (req, res) => {
 
 // Update Employee
 
-router.put('/api/category/update/:id', (req, res) => {
+router.put('/api/category/update/:id',checkAuth, (req, res) => {
 
 
     const cat = {
         name: req.body.name,
+        creator: req.userData.userId
     };
-    Category.findByIdAndUpdate(req.params.id, { $set: cat }, { new: true }, (err, data) => {
+    Category.findByIdAndUpdate({_id :req.params.id, creator : req.userData.userId}, { $set: cat }, { new: true }, (err, data) => {
         if(!err) {
             res.status(200).json({code: 200, message: 'Category Updated Successfully', updateCategory: data})
         } else {
@@ -85,9 +88,9 @@ router.put('/api/category/update/:id', (req, res) => {
 
 
 // Delete Employee
-router.delete('/api/category/:id', (req, res) => {
+router.delete('/api/category/:id',checkAuth, (req, res) => {
 
-    Category.findByIdAndRemove(req.params.id, (err, data) => {
+    Category.findByIdAndRemove({_id :req.params.id, creator : req.userData.userId}, (err, data) => {
         if(!err) {
             // res.send(data);
             res.status(200).json({code: 200, message: 'Category deleted', deleteCategory: data})

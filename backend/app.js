@@ -9,6 +9,7 @@ const dotenv = require('dotenv');
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
+
 // Middleware
 // app.use('/employees', () => {
 //     console.log('Middleware Running');
@@ -34,5 +35,6 @@ connectDB();
 app.use("/images", express.static(path.join("backend/images")));
 app.use('/', require('./routes/categories'));
 app.use('/', require('./routes/products'));
+app.use('/', require('./routes/user'));
 
 app.listen(3000);

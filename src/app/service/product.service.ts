@@ -30,7 +30,7 @@ export class ProductService {
   }
 
   getProductById(id){
-    return this.httpClient.get(environment.apiUrl+'/product/'+id);
+    return this.httpClient.get(environment.apiUrl+'/product/'+id, {responseType: 'json'});
   }
 
   updateProduct(id, name: string, price: string, category: string, description: string, quantity: string, image: File){

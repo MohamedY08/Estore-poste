@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const ObjectId = require('mongoose').Types.ObjectId;
 const multer = require("multer");
+const checkAuth = require('../middleware/check-auth');
 
 const { Product } = require('../models/product');
 
@@ -31,7 +32,7 @@ const storage = multer.diskStorage({
 });
 
 // Get All Products
-router.get('/api/products', (req, res) => {
+router.get('/api/products',  (req, res) => {
     Product.find({}, (err, data) => {
         if(!err) {
             res.send(data);
@@ -73,7 +74,7 @@ router.get('/api/product/:id', (req, res) => {
 
 // Save Product
 
-router.post('/api/product/add',multer({ storage: storage }).single("image"), (req, res, next) => {
+router.post('/api/product/add',checkAuth, multer({ storage: storage }).single("image"), (req, res, next) => {
     const url = req.protocol + "://" + req.get("host");
     const prod = new Product({
         name: req.body.name,
@@ -81,7 +82,9 @@ router.post('/api/product/add',multer({ storage: storage }).single("image"), (re
         category: req.body.category,
         description: req.body.description,
         imagePath: url + "/images/" + req.file.filename,
-        quantity: req.body.quantity
+        quantity: req.body.quantity,
+        creator: req.userData.userId,
+
     });
     prod.save((err, data) => {
         if(!err) {
@@ -97,7 +100,7 @@ router.post('/api/product/add',multer({ storage: storage }).single("image"), (re
 
 // Update Product
 
-router.put('/api/product/update/:id', multer({ storage: storage }).single("image"), (req, res, next) => {
+router.put('/api/product/update/:id',checkAuth, multer({ storage: storage }).single("image"), (req, res, next) => {
 
   let imagePath = req.body.imagePath;
   if (req.file) {
@@ -110,10 +113,11 @@ router.put('/api/product/update/:id', multer({ storage: storage }).single("image
         category: req.body.category,
         description: req.body.description,
         imagePath: imagePath,
-        quantity: req.body.quantity
+        quantity: req.body.quantity,
+        creator: req.userData.userId
     };
     console.log(prod);
-    Product.findByIdAndUpdate(req.params.id, { $set: prod }, { upsert: true }, (err, data) => {
+    Product.findByIdAndUpdate({_id :req.params.id, creator : req.userData.userId}, { $set: prod }, { upsert: true }, (err, data) => {
         if(!err) {
             res.status(200).json({code: 200, message: 'Product Updated Successfully', updateProduct: data})
         } else {
@@ -127,9 +131,9 @@ router.put('/api/product/update/:id', multer({ storage: storage }).single("image
 
 
 // Delete Product
-router.delete('/api/product/:id', (req, res) => {
+router.delete('/api/product/:id',checkAuth, (req, res) => {
 
-    Product.findByIdAndRemove(req.params.id, (err, data) => {
+    Product.findByIdAndRemove({_id :req.params.id, creator : req.userData.userId},(err, data) => {
         if(!err) {
             // res.send(data);
             res.status(200).json({code: 200, message: 'Category deleted', deleteProduct: data})

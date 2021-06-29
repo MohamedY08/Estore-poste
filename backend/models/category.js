@@ -10,7 +10,9 @@ const Category = mongoose.model('Category', {
     type: String,
     unique: true,
     lowercase: true
-  }
+  },
+  creator: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true }
+
 });
 
 

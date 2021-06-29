@@ -6,7 +6,7 @@ import { AuthService } from "../auth.service";
 
 @Component({
   templateUrl: "./login.component.html",
-  styleUrls: ["./login.component.css"]
+  styleUrls: ["./login.component.scss"]
 })
 export class LoginComponent implements OnInit, OnDestroy {
   isLoading = false;
@@ -15,22 +15,24 @@ export class LoginComponent implements OnInit, OnDestroy {
   constructor(public authService: AuthService) {}
 
   ngOnInit() {
-    this.authStatusSub = this.authService.getAuthStatusListener().subscribe(
+   /* this.authStatusSub = this.authService.getAuthStatusListener().subscribe(
       authStatus => {
         this.isLoading = false;
       }
-    );
+    );*/
   }
 
   onLogin(form: NgForm) {
+    console.log(form);
     if (form.invalid) {
       return;
     }
+    console.log(form);
     this.isLoading = true;
     this.authService.login(form.value.email, form.value.password);
   }
 
   ngOnDestroy() {
-    this.authStatusSub.unsubscribe();
+    /*this.authStatusSub.unsubscribe();*/
   }
 }

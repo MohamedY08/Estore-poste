@@ -5,11 +5,11 @@ const mongoose = require("mongoose");
 const uniqueValidator = require("mongoose-unique-validator");
 
 const Schema = mongoose.Schema;
-const bcrypt = require("bcrypt-nodejs");
-const crypto = require("crypto");
+
 
 //Creating UserSchema
 const UserSchema = new Schema({
+  name: { type: String },
   email: {
     type: String,
     required: true,
@@ -17,24 +17,16 @@ const UserSchema = new Schema({
     lowercase: true
   },
   password: { type: String, required: true },
-  name: { type: String },
-  role: { type: mongoose.Schema.Types.ObjectId, ref: "Role", required: true },/*
-  address: {
-    addr1: String,
-    addr2: String,
-    city: String,
-    state: String,
-    country: String,
-    postalCode: String,
-  },*/
+  role: { type: mongoose.Schema.Types.ObjectId, ref: "Role", required: true },
   created: {
     type: Date,
     default: Date.now
   },
 });
+UserSchema.plugin(uniqueValidator);
 
 //Function to handleEvent of password modification
-UserSchema.pre("save", function (next) {
+/*UserSchema.pre("save", function (next) {
   var user = this;
 
   if (!user.isModified("password")) return next();
@@ -50,7 +42,7 @@ UserSchema.pre("save", function (next) {
 //Function to check if modified and saved passwords match
 UserSchema.methods.comparePassword = function (password) {
   return bcrypt.compareSync(password, this.password);
-};
+};*/
 
 //Exporting the Review schema to reuse
 module.exports = mongoose.model("User", UserSchema);

@@ -1,3 +1,4 @@
+<div *ngIf="!userIsAuthenticated">
 <mat-toolbar class="main-topbar">
   <mat-toolbar-row fxLayout="row" fxLayoutAlign="space-between center" class="top-bar container" >
           <span fxHide="false" fxHide.gt-sm   >
@@ -162,4 +163,30 @@
 
 
 </div>
+</div>
+
+<div *ngIf="userIsAuthenticated">
+
+  <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" ><img width="100px" src="assets/images/PosteLogo.jpg" alt=""></a>
+
+    <ul class="navbar-nav px-3">
+      <li class="nav-item text-nowrap">
+        <a class="nav-link" routerLink="/admin/product" routerLinkActive="mat-accent" >Products</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav px-3">
+      <li class="nav-item text-nowrap">
+        <a class="nav-link" routerLink="/admin/category" routerLinkActive="mat-accent" >Categories</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav px-3">
+      <li class="nav-item text-nowrap">
+        <a class="nav-link" href="#" (click)="onLogout()" >Sign out</a>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+
 

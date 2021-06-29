@@ -1,5 +1,6 @@
 import { Component, OnInit,/* OnDestroy*/ } from "@angular/core";
 import {FormBuilder, FormGroup, Validators, NgForm} from '@angular/forms';
+import { AuthService } from "../auth.service";
 
 @Component({
   templateUrl: "./signup.component.html",
@@ -7,9 +8,9 @@ import {FormBuilder, FormGroup, Validators, NgForm} from '@angular/forms';
 })
 export class SignupComponent /*implements OnInit, OnDestroy*/ {
   isLoading = false;
-  /*private authStatusSub: Subscription;
+  /*private authStatusSub: Subscription;*/
 
-  constructor(public authService: AuthService) {}*/
+  constructor(public authService: AuthService, private _formBuilder: FormBuilder) {}
   /*private authStatusSub: Subscription;
 
   constructor(public authService: AuthService) {}*/
@@ -18,17 +19,17 @@ export class SignupComponent /*implements OnInit, OnDestroy*/ {
   isEditable = true;
   hide = true;
 
-  constructor(private _formBuilder: FormBuilder) {}
 
-  ngOnInit() {
+
+  ngOnInit() {/*
     this.firstFormGroup = this._formBuilder.group({
       firstCtrl: ['', Validators.required]
     });
     this.secondFormGroup = this._formBuilder.group({
       secondCtrl: ['', Validators.required]
-    });
+    });*/
   }
-}
+
 
     /*this.authStatusSub = this.authService.getAuthStatusListener().subscribe(
       authStatus => {
@@ -37,15 +38,18 @@ export class SignupComponent /*implements OnInit, OnDestroy*/ {
     );*/
 
 
-  /*onSignup(form: NgForm) {
+  onSignup(form: NgForm) {
+    form.value.role = '60c4ce5961d0fc21a85c9206';
     if (form.invalid) {
+      console.log(form);
       return;
     }
-    this.isLoading = true;
-    this.authService.createUser(form.value.email, form.value.password);
-  }
 
+    this.isLoading = true;
+    this.authService.createUser(form.value.email, form.value.password, form.value.name, form.value.role);
+  }
+/*
   ngOnDestroy() {
     this.authStatusSub.unsubscribe();
   }*/
-
+}
