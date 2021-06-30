@@ -38,7 +38,7 @@ this.categoryService.getCategoryById(this.id).subscribe(res => {
   onUpdateCategory(){
     this.categoryService.updateCategory(this.id,this.form.value).subscribe(res => {
       this.data = res;
-      this.router.navigateByUrl('/admin/product');
+      this.router.navigateByUrl('/admin/category');
     })
   }
 }
